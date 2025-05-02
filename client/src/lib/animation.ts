@@ -74,8 +74,8 @@ export const init3DAnimation = (canvas: HTMLElement) => {
   // Check theme for color
   const isDarkMode = document.documentElement.classList.contains("dark");
 
-  // Create a shield geometry to represent security
-  const shieldGeometry = new THREE.IcosahedronGeometry(5, 1);
+  // Create a smaller shield geometry to represent security - reduced size from 5 to 3
+  const shieldGeometry = new THREE.IcosahedronGeometry(3, 1);
   const material = new THREE.MeshPhongMaterial({
     color: isDarkMode ? 0x1e40af : 0x0d9488,
     wireframe: true,
@@ -93,7 +93,8 @@ export const init3DAnimation = (canvas: HTMLElement) => {
 
   const posArray = new Float32Array(particlesCount * 3);
   for (let i = 0; i < particlesCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 50;
+    // Reduced particle spread from 50 to 30 to match smaller shield
+    posArray[i] = (Math.random() - 0.5) * 30;
   }
 
   particlesGeometry.setAttribute(
@@ -111,21 +112,31 @@ export const init3DAnimation = (canvas: HTMLElement) => {
   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particlesMesh);
 
-  camera.position.z = 5;
+  // Adjusted camera position to better frame the smaller shield
+  camera.position.z = 12;
+  
+  // Position the shield slightly to the right for mobile view
+  shield.position.x = window.innerWidth < 768 ? 3 : 1;
 
-  // Animation function
+  // Animation function - slower for better performance on mobile
   function animate() {
     requestAnimationFrame(animate);
 
-    shield.rotation.x += 0.003;
-    shield.rotation.y += 0.005;
+    // Slower rotation for better performance, especially on mobile
+    shield.rotation.x += 0.002;
+    shield.rotation.y += 0.003;
 
-    particlesMesh.rotation.y += 0.001;
+    particlesMesh.rotation.y += 0.0005;
 
-    // Make it responsive
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    // Make it responsive but only update dimensions when actually needed
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    
+    if (renderer.domElement.width !== width || renderer.domElement.height !== height) {
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
 
     renderer.render(scene, camera);
   }
@@ -137,6 +148,9 @@ export const init3DAnimation = (canvas: HTMLElement) => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
+    
+    // Update shield position on resize for responsive design
+    shield.position.x = window.innerWidth < 768 ? 3 : 1;
   });
 
   // Theme change handler
