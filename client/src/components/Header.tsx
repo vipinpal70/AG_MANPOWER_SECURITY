@@ -21,34 +21,39 @@ const Header = () => {
         <Link href="/" className="flex items-center space-x-2">
           <span className="text-xl font-bold font-heading text-primary dark:text-white">AG SECURITY SERVICE</span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#home" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Home</a>
-          <a href="#about" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">About Us</a>
-          <a href="#services" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Services</a>
-          <a href="#quality" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Quality Policy</a>
-          <a href="#training" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Training</a>
-          <a href="#contact" className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contact Us</a>
-        </nav>
-        <button
-          id="mobile-menu-button"
-          className="md:hidden flex items-center"
-          onClick={toggleMobileMenu}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <div className="flex items-center">
+          <nav className="hidden md:flex items-center space-x-6 mr-6">
+            <a href="#home" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Home</a>
+            <a href="#about" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">About Us</a>
+            <a href="#services" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Services</a>
+            <a href="#quality" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Quality Policy</a>
+            <a href="#training" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Training</a>
+            <a href="#contact" className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contact Us</a>
+          </nav>
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
+          <button
+            id="mobile-menu-button"
+            className="md:hidden flex items-center ml-4"
+            onClick={toggleMobileMenu}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       
       {/* Mobile menu */}
@@ -67,7 +72,10 @@ const Header = () => {
         </div>
       </div>
       
-      <ThemeToggle />
+      {/* Add ThemeToggle for mobile view */}
+      <div className="md:hidden flex justify-center py-4 border-t border-gray-200 dark:border-gray-700">
+        <ThemeToggle />
+      </div>
     </header>
   );
 };
