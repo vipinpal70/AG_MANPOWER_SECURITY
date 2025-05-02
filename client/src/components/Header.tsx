@@ -22,15 +22,15 @@ const Header = () => {
           <span className="text-xl font-bold font-heading text-primary dark:text-white">AG SECURITY SERVICE</span>
         </Link>
         <div className="flex items-center">
-          <nav className="hidden md:flex items-center space-x-6 mr-6">
+          <nav className="hidden md:flex items-center space-x-4">
             <a href="#home" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Home</a>
             <a href="#about" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">About Us</a>
             <a href="#services" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Services</a>
-            <a href="#quality" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Quality Policy</a>
+            <a href="#quality" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Quality</a>
             <a href="#training" className="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors">Training</a>
-            <a href="#contact" className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contact Us</a>
+            <a href="#contact" className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300 mx-4">Contact Us</a>
           </nav>
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center">
             <ThemeToggle />
           </div>
           <button
