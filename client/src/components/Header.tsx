@@ -69,12 +69,13 @@ const Header = () => {
           <a href="#quality" className="block text-base font-medium hover:text-primary dark:hover:text-secondary" onClick={closeMobileMenu}>Quality Policy</a>
           <a href="#training" className="block text-base font-medium hover:text-primary dark:hover:text-secondary" onClick={closeMobileMenu}>Training</a>
           <a href="#contact" className="inline-block bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md text-base font-medium mt-2" onClick={closeMobileMenu}>Contact Us</a>
+          
+          {/* ThemeToggle inside mobile menu */}
+          <div className="flex items-center pt-4 mt-2 border-t border-gray-200 dark:border-gray-700">
+            <span className="text-sm font-medium mr-3">Theme:</span>
+            <ThemeToggle />
+          </div>
         </div>
-      </div>
-      
-      {/* Add ThemeToggle for mobile view */}
-      <div className="md:hidden flex justify-center py-4 border-t border-gray-200 dark:border-gray-700">
-        <ThemeToggle />
       </div>
     </header>
   );
