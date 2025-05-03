@@ -8,19 +8,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  
+
   useEffect(() => {
     if (!sectionRef.current) return;
-    
+
     const scrollElements = sectionRef.current.querySelectorAll('[data-scroll]');
-    
+
     scrollElements.forEach((el) => {
-      gsap.fromTo(el, 
-        { 
+      gsap.fromTo(el,
+        {
           y: 30,
-          opacity: 0 
+          opacity: 0
         },
-        { 
+        {
           y: 0,
           opacity: 1,
           duration: 0.8,
@@ -32,22 +32,22 @@ const AboutSection = () => {
         }
       );
     });
-    
+
     return () => {
       // Cleanup scroll triggers to prevent memory leaks
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
-  
+
   return (
     <section id="about" ref={sectionRef} className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary bg-opacity-10 dark:bg-opacity-20 text-primary dark:text-secondary text-sm font-medium mb-4">About Us</span>
+          <span className="inline-block py-1 px-3 rounded-full bg-primary bg-opacity-10 dark:bg-opacity-20 text-white text-sm font-medium mb-4">About Us</span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 dark:text-white mb-4">Leading Facility Management Company</h2>
           <p className="text-lg text-gray-700 dark:text-gray-300">Delivering quality and innovative services since 2016</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="about-image-wrapper overflow-hidden rounded-xl shadow-lg" data-scroll>
             <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-primary to-secondary opacity-90 dark:opacity-70 rounded-xl">
@@ -58,22 +58,22 @@ const AboutSection = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="space-y-6" data-scroll>
             <p className="text-gray-700 dark:text-gray-300">We are one of the leading Facility Management Companies, delivering quality services with innovative methods. We have a team of highly dedicated personnel and field workers with a core competency in providing a wide range of facility management services.</p>
-            
-            <h3 className="text-xl font-bold font-heading text-primary dark:text-secondary">We Serve</h3>
+
+            <h3 className="text-xl font-bold font-heading text-primary dark:text-[#f2b63d]">We Serve</h3>
             <div className="grid grid-cols-2 gap-4">
               {clientsServed.map((client, index) => (
                 <div key={index} className="flex items-center space-x-2">
-                  <Check className="h-5 w-5 text-secondary" />
+                  <Check className="h-5 w-5 text-[#f2b63d]" />
                   <span>{client}</span>
                 </div>
               ))}
             </div>
-            
+
             <div className="pt-4">
-              <h3 className="text-xl font-bold font-heading text-primary dark:text-secondary mb-4">Registrations</h3>
+              <h3 className="text-xl font-bold font-heading text-primary dark:text-[#f2b63d] mb-4">Registrations</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {registrationDetails.map((reg, index) => (
                   <div key={index} className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm">
@@ -85,7 +85,7 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-16 pt-10 border-t border-gray-200 dark:border-gray-700">
           <h3 className="text-2xl font-bold font-heading text-center text-gray-900 dark:text-white mb-10">Our Strength</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -98,7 +98,7 @@ const AboutSection = () => {
               <h4 className="text-xl font-bold font-heading text-primary dark:text-white mb-2">Efficient Management</h4>
               <p className="text-gray-700 dark:text-gray-300">Our services are supported by efficient management and our Supervisors are put through specialized training in their respective jobs, ensuring systematic approach with minimum disturbances.</p>
             </div>
-            
+
             <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md" data-scroll>
               <div className="mb-4 text-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,16 +110,18 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-16">
           <h3 className="text-2xl font-bold font-heading text-center text-gray-900 dark:text-white mb-10">Our Manpower</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" data-scroll>
             {manpowerList.map((role, index) => (
-              <div key={index} className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mx-auto mb-2 text-primary dark:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <span className="font-medium text-sm">{role}</span>
+              <div key={index} className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center flex flex-col items-center justify-center">
+                <img
+                  src={role.image}
+                  alt={role.title}
+                  className="h-24 w-24 object-contain mx-auto mb-3" // Increased size and kept object-contain
+                />
+                <span className="font-medium text-sm">{role.title}</span>
               </div>
             ))}
           </div>

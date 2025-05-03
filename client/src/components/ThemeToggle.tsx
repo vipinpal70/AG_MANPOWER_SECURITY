@@ -1,21 +1,52 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // After mounting, we can safely access window and localStorage
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Toggle between light and dark themes
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  };
+
+  // Ensure the component is mounted before rendering to avoid hydration issues
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <div className="flex items-center space-x-2">
-      <button
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="flex items-center justify-center w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 p-0.5"
-        aria-label="Toggle theme"
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={toggleTheme}
+      className="relative rounded-full focus:outline-none focus:ring-0 p-2 text-dark-700 dark:text-dark-300 hover:bg-dark-200 dark:hover:bg-dark-800 transition-colors"
+      aria-label="Toggle theme"
+    >
+      <motion.div
+        initial={{ rotate: 0 }}
+        animate={{ rotate: theme === "dark" ? 180 : 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
-        <div className={`toggle-circle w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-300 ${
-          theme === "dark" ? "translate-x-6" : "translate-x-0"
-        }`}></div>
-      </button>
-      <span className="sr-only">Toggle Theme</span>
-    </div>
+        {theme === "dark" ? (
+          <Sun className="h-5 w-5" />
+        ) : (
+          <Moon className="h-5 w-5" />
+        )}
+      </motion.div>
+    </Button>
   );
 }

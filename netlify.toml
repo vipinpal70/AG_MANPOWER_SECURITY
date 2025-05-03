@@ -1,0 +1,17 @@
+# netlify.toml
+[build]
+  command = "npm run build" # Or your specific build command
+  publish = "dist"          # Or the folder where your client build output is located
+  functions = "netlify/functions" # Directory for serverless functions
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Optional: Redirect for Single Page Applications (SPA)
+# Uncomment if your React app uses client-side routing
+# [[redirects]]
+#  from = "/*"
+#  to = "/index.html"
+#  status = 200

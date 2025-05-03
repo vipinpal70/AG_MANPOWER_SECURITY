@@ -1,4 +1,7 @@
 import { Link } from "wouter";
+import { motion } from "framer-motion";
+// import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   return (
@@ -6,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h3 className="text-xl font-bold font-heading mb-4">AG SECURITY SERVICE</h3>
+            <h3 className="text-xl font-bold font-heading mb-4">AG MANPOWER SERVICE</h3>
             <p className="text-gray-400 mb-6 max-w-md">
               Providing comprehensive security and facility management services
               since 2016. We are committed to delivering quality and innovative
@@ -171,6 +174,26 @@ const Footer = () => {
           <p className="text-gray-400 text-center">
             &copy; {new Date().getFullYear()} AG SECURITY SERVICE. All rights reserved.
           </p>
+          <div className="mt-4 pt-4 relative h-24">
+            <motion.div
+              initial={{ opacity: 0, x: 20, y: 20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="absolute bottom-4 right-6"
+            >
+              <p className="text-gray-500 text-sm">
+                Design & Developed By{" "}
+                <a
+                  href="https://portfolio-website-0pky.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-400 underline underline-offset-4 transition duration-300"
+                >
+                  Vipin Pal
+                </a>
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
     </footer>

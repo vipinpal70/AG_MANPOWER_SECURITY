@@ -46,9 +46,141 @@ export const setupScrollAnimation = () => {
   });
 };
 
-// Initialize 3D animation for hero section
+// // Initialize 3D animation for hero section
+// export const init3DAnimation = (canvas: HTMLElement) => {
+//   // Initialize Three.js
+//   const scene = new THREE.Scene();
+//   const camera = new THREE.PerspectiveCamera(
+//     75,
+//     window.innerWidth / window.innerHeight,
+//     0.1,
+//     1000,
+//   );
+
+//   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+//   renderer.setSize(window.innerWidth, window.innerHeight);
+//   renderer.setPixelRatio(window.devicePixelRatio);
+//   canvas.appendChild(renderer.domElement);
+
+//   // Add ambient light
+//   const ambientLight = new THREE.AmbientLight(0x404040, 2);
+//   scene.add(ambientLight);
+
+//   // Add directional light
+//   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+//   directionalLight.position.set(1, 1, 1);
+//   scene.add(directionalLight);
+
+//   // Check theme for color
+//   const isDarkMode = document.documentElement.classList.contains("dark");
+
+//   // Create a smaller shield geometry to represent security - reduced size from 5 to 3
+//   const shieldGeometry = new THREE.IcosahedronGeometry(5, 1);
+//   const material = new THREE.MeshPhongMaterial({
+//     color: isDarkMode ? 0xff0000 : 0xf89c2e,
+//     wireframe: true,
+//     transparent: true,
+//     opacity: isDarkMode ? 1 : 0.1,
+//     side: THREE.DoubleSide,
+//   });
+
+//   const shield = new THREE.Mesh(shieldGeometry, material);
+//   scene.add(shield);
+
+//   // Create points for a particle effect
+//   const particlesGeometry = new THREE.BufferGeometry();
+//   const particlesCount = 2000;
+
+//   const posArray = new Float32Array(particlesCount * 3);
+//   for (let i = 0; i < particlesCount * 3; i++) {
+//     // Reduced particle spread from 50 to 30 to match smaller shield
+//     posArray[i] = (Math.random() - 0.5) * 40;
+//   }
+
+//   particlesGeometry.setAttribute(
+//     "position",
+//     new THREE.BufferAttribute(posArray, 3),
+//   );
+
+//   const particlesMaterial = new THREE.PointsMaterial({
+//     size: 0.1,
+//     color: isDarkMode ? 0x0d9488 : 0xff0000,
+//     transparent: true,
+//     opacity: 0.9,
+//   });
+
+//   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+//   scene.add(particlesMesh);
+
+//   // Adjusted camera position to better frame the smaller shield
+//   camera.position.z = 12;
+
+//   // Position the shield slightly to the right for mobile view
+//   shield.position.x = window.innerWidth < 768 ? 3 : 1;
+
+//   // Animation function - slower for better performance on mobile
+//   function animate() {
+//     requestAnimationFrame(animate);
+
+//     // Slower rotation for better performance, especially on mobile
+//     shield.rotation.x += 0.002;
+//     shield.rotation.y += 0.003;
+
+//     particlesMesh.rotation.y += 0.0005;
+
+//     // Make it responsive but only update dimensions when actually needed
+//     const width = window.innerWidth;
+//     const height = window.innerHeight;
+
+//     if (
+//       renderer.domElement.width !== width ||
+//       renderer.domElement.height !== height
+//     ) {
+//       renderer.setSize(width, height);
+//       camera.aspect = width / height;
+//       camera.updateProjectionMatrix();
+//     }
+
+//     renderer.render(scene, camera);
+//   }
+
+//   animate();
+
+//   // Handle resize
+//   window.addEventListener("resize", () => {
+//     renderer.setSize(window.innerWidth, window.innerHeight);
+//     camera.aspect = window.innerWidth / window.innerHeight;
+//     camera.updateProjectionMatrix();
+
+//     // Update shield position on resize for responsive design
+//     shield.position.x = window.innerWidth < 768 ? 3 : 1;
+//   });
+
+//   // Theme change handler
+//   const themeObserver = new MutationObserver((mutations) => {
+//     mutations.forEach((mutation) => {
+//       if (mutation.attributeName === "class") {
+//         const isDark = document.documentElement.classList.contains("dark");
+//         shield.material.color.set(isDark ? 0x1e40af : 0x0d9488);
+//         particlesMaterial.color.set(isDark ? 0x0d9488 : 0x1e40af);
+//       }
+//     });
+//   });
+
+//   themeObserver.observe(document.documentElement, { attributes: true });
+
+//   return () => {
+//     // Cleanup
+//     renderer.dispose();
+//     themeObserver.disconnect();
+//     if (canvas.contains(renderer.domElement)) {
+//       canvas.removeChild(renderer.domElement);
+//     }
+//   };
+// };
+
 export const init3DAnimation = (canvas: HTMLElement) => {
-  // Initialize Three.js
+  // === Init scene ===
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -62,39 +194,47 @@ export const init3DAnimation = (canvas: HTMLElement) => {
   renderer.setPixelRatio(window.devicePixelRatio);
   canvas.appendChild(renderer.domElement);
 
-  // Add ambient light
+  // === Lighting ===
   const ambientLight = new THREE.AmbientLight(0x404040, 2);
   scene.add(ambientLight);
 
-  // Add directional light
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
   directionalLight.position.set(1, 1, 1);
   scene.add(directionalLight);
 
-  // Check theme for color
-  const isDarkMode = document.documentElement.classList.contains("dark");
+  // === Theme-based color logic ===
+  const getThemeColors = () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    return {
+      isDarkMode: isDark,
+      shieldColor: isDark ? 0xfab057 : 0xf89c2e, // Warm amber in dark, orange in light
+      particleColor: isDark ? 0x0d9488 : 0x1e40af, // Teal in dark, blue in light
+      shieldOpacity: isDark ? 1 : 0.1,
+    };
+  };
 
-  // Create a smaller shield geometry to represent security - reduced size from 5 to 3
-  const shieldGeometry = new THREE.IcosahedronGeometry(3, 1);
+  let { isDarkMode, shieldColor, particleColor, shieldOpacity } =
+    getThemeColors();
+
+  // === Shield geometry ===
+  const shieldGeometry = new THREE.IcosahedronGeometry(5, 1);
   const material = new THREE.MeshPhongMaterial({
-    color: isDarkMode ? 0x1e40af : 0x0d9488,
+    color: shieldColor,
     wireframe: true,
     transparent: true,
-    opacity: 0.9,
+    opacity: shieldOpacity,
     side: THREE.DoubleSide,
   });
 
   const shield = new THREE.Mesh(shieldGeometry, material);
   scene.add(shield);
 
-  // Create points for a particle effect
+  // === Particles ===
   const particlesGeometry = new THREE.BufferGeometry();
   const particlesCount = 2000;
-
   const posArray = new Float32Array(particlesCount * 3);
-  for (let i = 0; i < particlesCount * 3; i++) {
-    // Reduced particle spread from 50 to 30 to match smaller shield
-    posArray[i] = (Math.random() - 0.5) * 30;
+  for (let i = 0; i < posArray.length; i++) {
+    posArray[i] = (Math.random() - 0.5) * 40;
   }
 
   particlesGeometry.setAttribute(
@@ -104,7 +244,7 @@ export const init3DAnimation = (canvas: HTMLElement) => {
 
   const particlesMaterial = new THREE.PointsMaterial({
     size: 0.1,
-    color: isDarkMode ? 0x0d9488 : 0x1e40af,
+    color: particleColor,
     transparent: true,
     opacity: 0.9,
   });
@@ -112,27 +252,24 @@ export const init3DAnimation = (canvas: HTMLElement) => {
   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particlesMesh);
 
-  // Adjusted camera position to better frame the smaller shield
+  // === Camera position ===
   camera.position.z = 12;
-  
-  // Position the shield slightly to the right for mobile view
   shield.position.x = window.innerWidth < 768 ? 3 : 1;
 
-  // Animation function - slower for better performance on mobile
+  // === Animate loop ===
   function animate() {
     requestAnimationFrame(animate);
-
-    // Slower rotation for better performance, especially on mobile
     shield.rotation.x += 0.002;
     shield.rotation.y += 0.003;
-
     particlesMesh.rotation.y += 0.0005;
 
-    // Make it responsive but only update dimensions when actually needed
     const width = window.innerWidth;
     const height = window.innerHeight;
-    
-    if (renderer.domElement.width !== width || renderer.domElement.height !== height) {
+
+    if (
+      renderer.domElement.width !== width ||
+      renderer.domElement.height !== height
+    ) {
       renderer.setSize(width, height);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -140,34 +277,27 @@ export const init3DAnimation = (canvas: HTMLElement) => {
 
     renderer.render(scene, camera);
   }
-
   animate();
 
-  // Handle resize
+  // === Responsive shield position ===
   window.addEventListener("resize", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    
-    // Update shield position on resize for responsive design
     shield.position.x = window.innerWidth < 768 ? 3 : 1;
   });
 
-  // Theme change handler
-  const themeObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.attributeName === "class") {
-        const isDark = document.documentElement.classList.contains("dark");
-        shield.material.color.set(isDark ? 0x1e40af : 0x0d9488);
-        particlesMaterial.color.set(isDark ? 0x0d9488 : 0x1e40af);
-      }
-    });
+  // === Theme change listener ===
+  const themeObserver = new MutationObserver(() => {
+    const { shieldColor, particleColor, shieldOpacity } = getThemeColors();
+    shield.material.color.set(shieldColor);
+    shield.material.opacity = shieldOpacity;
+    particlesMaterial.color.set(particleColor);
   });
 
   themeObserver.observe(document.documentElement, { attributes: true });
 
   return () => {
-    // Cleanup
     renderer.dispose();
     themeObserver.disconnect();
     if (canvas.contains(renderer.domElement)) {

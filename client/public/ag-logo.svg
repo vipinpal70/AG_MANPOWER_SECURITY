@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Shield -->
+  <path d="M100 10 L180 40 L180 100 C180 150 140 180 100 190 C60 180 20 150 20 100 L20 40 Z" fill="#0d6efd" opacity="0.9"/>
+  
+  <!-- Inner Shield -->
+  <path d="M100 25 L160 50 L160 100 C160 140 130 165 100 175 C70 165 40 140 40 100 L40 50 Z" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- AG Letters -->
+  <g transform="translate(55, 85)">
+    <!-- A Letter -->
+    <path d="M0 50 L15 0 L30 50 M5 35 L25 35" stroke="#0d6efd" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- G Letter -->
+    <path d="M60 25 C60 10 45 0 30 0 C15 0 0 10 0 25 C0 40 15 50 30 50 C45 50 60 40 60 25 M60 25 L45 25" transform="translate(40, 0)" stroke="#0d6efd" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  
+  <!-- Service Stars -->
+  <circle cx="50" cy="140" r="5" fill="#ffffff"/>
+  <circle cx="100" cy="140" r="5" fill="#ffffff"/>
+  <circle cx="150" cy="140" r="5" fill="#ffffff"/>
+</svg>
