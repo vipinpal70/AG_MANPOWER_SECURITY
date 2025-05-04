@@ -1,7 +1,7 @@
 # netlify.toml
 [build]
   command = "npm run build" # Or your specific build command
-  publish = "dist"          # Or the folder where your client build output is located
+  publish = "dist/public"   # Updated publish directory
   functions = "netlify/functions" # Directory for serverless functions
 
 [[redirects]]
