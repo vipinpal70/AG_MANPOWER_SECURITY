@@ -38,7 +38,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center overflow-hidden pt-16"
+      className="relative h-screen flex dark:bg-black items-center overflow-hidden pt-16"
     >
       {/* 3D Animation Canvas - ensure it stays behind content */}
       <div
@@ -55,7 +55,7 @@ const HeroSection = () => {
           <div className="animate-element">
             <span className="inline-block py-1 px-3 rounded-full bg-secondary bg-opacity-20 dark:bg-opacity-30 text-black dark:text-white text-sm font-medium mb-4">
               {" "}
-              Leading Security Solutions
+              Welcome to AG MANPOWER SERVICE
             </span>
           </div>
           <h1

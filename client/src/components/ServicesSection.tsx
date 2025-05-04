@@ -52,7 +52,7 @@ const ServicesSection = () => {
           {servicesData.map((service, index) => (
             <div key={index} className="bg-white dark:bg-gray-900 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow" data-scroll>
               <div className={`h-48 ${service.gradientClass} flex items-center justify-center`}>
-                {React.createElement(service.icon, { className: service.iconClass })}
+                {/* {React.createElement(service.icon, { className: service.iconClass })} */}
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold font-heading text-primary dark:text-white mb-2">{service.title}</h3>
@@ -65,7 +65,7 @@ const ServicesSection = () => {
                     </li>
                   ))}
                 </ul>
-                <a href="#contact" className="inline-block mt-6 text-secondary dark:text-[#d89f2c] font-medium hover:underline">Learn More →</a>
+                {/* <a href={service.route} className="inline-block mt-6 text-secondary dark:text-[#d89f2c] font-medium hover:underline">Learn More →</a> */}
               </div>
             </div>
           ))}

@@ -21,14 +21,12 @@ export const manpowerList = [
   { title: "Facility Manager", image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFuYWdlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60" },
   { title: "Manager Housekeeping", image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG91c2VrZWVwaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60" },
   { title: "Supervisors", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHN1cGVydmlzb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60" },
-  { title: "Office Boys", image: "https://img.freepik.com/free-photo/handsome-man-presenting-something_1368-8693.jpg" },
-  { title: "Pantry Boys", image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFudHJ5fGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60" },
+  { title: "Office Boys", image: "/officeBoy.png" },
   { title: "Housekeeping Boys", image: "https://thumbs.dreamstime.com/b/male-janitor-cleaning-floor-office-male-janitor-cleaning-floor-office-109815890.jpg" },
   { title: "Lady Housekeepers", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdXNla2VlcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60" },
-  { title: "Security Guards", image: "https://images.unsplash.com/photo-1661843160935-29a07a7bd952?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dg" },
+  { title: "Security Guards", image: "/guard.jpg" },
   { title: "Security Supervisors", image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2VjdXJpdHklMjBzdXBlcnZpc29yfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60" },
-  { title: "Gunmen", image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2VjdXJpdHklMjBndWFyZCUyMHdpdGglMjBndW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60" },
-  { title: "Electricians", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxlY3RyaWNpYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60" },
+  { title: "Gunmen", image: "/gunman.jpg" },
   { title: "Receptionists", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60" }
 ];
 
@@ -45,7 +43,8 @@ export const servicesData = [
       "Access control and visitor management",
       "Fire fighting trained personnel",
       "Police and emergency liaison"
-    ]
+    ],
+    route: "/security-services"
   },
   {
     title: "Office Cleaning & Housekeeping",
@@ -58,7 +57,8 @@ export const servicesData = [
       "Glass and partition cleaning",
       "Waste management and disposal",
       "Air freshening and sanitization"
-    ]
+    ],
+    route: "/office-cleaning"
   },
   {
     title: "SIRC & Emergency Services",
@@ -71,7 +71,8 @@ export const servicesData = [
       "Medical facility coordination",
       "Camera control operating system",
       "Emergency response team"
-    ]
+    ],
+    route: "/sirc-emergency"
   }
 ];
 

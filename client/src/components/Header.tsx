@@ -104,6 +104,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-40 bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90 shadow-sm backdrop-blur-sm transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center h-20">
         <Link href="/" className="flex items-center space-x-2">
+          {/* <img src="/logo.png" alt="Logo" className="h-8 w-auto" /> */}
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="rounded border border-1"
+            style={{ borderColor: '#fffaf0', height: '2.6rem', width: 'auto' }}
+          />
           <span className="text-xl font-bold font-heading text-primary dark:text-white">
             AG MANPOWER SERVICE
           </span>

@@ -110,7 +110,7 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-
+        {/* 
         <div className="mt-16">
           <h3 className="text-2xl font-bold font-heading text-center text-gray-900 dark:text-white mb-10">Our Manpower</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" data-scroll>
@@ -122,6 +122,31 @@ const AboutSection = () => {
                   className="h-24 w-24 object-contain mx-auto mb-3" // Increased size and kept object-contain
                 />
                 <span className="font-medium text-sm">{role.title}</span>
+              </div>
+            ))}
+          </div>
+        </div> */}
+
+        <div className="mt-16 px-4 sm:px-6 lg:px-8">
+          <h3 className="text-2xl font-bold font-heading text-center text-gray-900 dark:text-white mb-10">
+            Our Manpower
+          </h3>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6" data-scroll>
+            {manpowerList.map((role, index) => (
+              <div
+                key={index}
+                className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow transition-shadow duration-300 hover:shadow-lg dark:hover:shadow-[0_4px_20px_rgba(255,255,255,0.1)] text-center flex flex-col items-center"
+              >
+                <img
+                  src={role.image}
+                  alt={role.title}
+                  // className="h-24 w-24 object-contain mb-4"
+                  className="w-full h-30 object-contain mb-4 rounded"
+                />
+                <span className="font-medium text-base text-gray-800 dark:text-white">
+                  {role.title}
+                </span>
               </div>
             ))}
           </div>

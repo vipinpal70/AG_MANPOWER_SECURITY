@@ -144,7 +144,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Get the base URL for the server
       const baseUrl = `${req.protocol}://${req.get('host')}`;
-      const logoUrl = `${baseUrl}/static/ag-logo.svg`;
+      const logoUrl = `${baseUrl}/static/logo.png`;
 
       const htmlTemplate = `
         <!DOCTYPE html>
@@ -193,7 +193,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
                   <tr>
                     <td align="center" style="background-color: #f1f1f1; font-size: 12px; color: #777777; padding: 20px; border-radius: 0 0 10px 10px;">
                       © 2025 AG Security Solutions. All rights reserved.<br>
-                      123 Business Road, Your City, Country
+                      Rz-44/271, Hans Park, West Sagarpur, New Delhi-110046, India
                     </td>
                   </tr>
                 </table>
