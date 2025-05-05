@@ -162,9 +162,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
                     <td align="left" style="background-color: #0d6efd; color: #ffffff; padding: 20px; border-radius: 10px 10px 0 0;">
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td width="50" valign="middle">
-                          <img src="${logoUrl}" alt="AG Logo" width="40" height="40" style="display: block; border-radius: 5px;">
-                        </td>
                         <td valign="middle" style="padding-left: 15px;">
                           <h1 style="margin: 0; font-size: 24px; color: #ffffff; font-weight: bold;">AG MANPOWER SERVICE</h1>
                         </td>

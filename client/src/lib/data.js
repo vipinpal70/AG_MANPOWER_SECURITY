@@ -140,7 +140,7 @@ export const dontsList = [
 // Contact Section Data
 export const contactInfo = {
   address: "Rz-44/271, Hans Park, West Sagarpur, New Delhi-110046",
-  phone: "+91 7678400486, +91 9871489437",
+  phone: "+91 7678400486, +91 9958334485",
   email: "agmanpowerservices2@gmail.com"
 };
 

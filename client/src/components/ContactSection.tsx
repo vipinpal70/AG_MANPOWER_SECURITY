@@ -167,9 +167,10 @@ const ContactSection = () => {
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="security">Security Services</SelectItem>
-                            <SelectItem value="housekeeping">Housekeeping Services</SelectItem>
-                            <SelectItem value="toilet">Toilet Cleaning</SelectItem>
                             <SelectItem value="facility">Facility Management</SelectItem>
+                            <SelectItem value="baby_care">Baby Care</SelectItem>
+                            <SelectItem value="patient_care">Patient Care</SelectItem>
+                            <SelectItem value="housemaid">Housemaid</SelectItem>
                             <SelectItem value="other">Other Services</SelectItem>
                           </SelectContent>
                         </Select>
