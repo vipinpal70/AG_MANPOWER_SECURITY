@@ -7,11 +7,11 @@ export default function TeamSection() {
     {
       name: "Sanjeev Kumar",
       position: "Founder & CEO",
-      photo: "/placeholder.svg",
+      photo: "/ceo.jpg",
       initials: "SK",
       phone: "7678400486",
       email: "aggroupsanjeev@gmail.com",
-      qualification: "Ex-serviceman with 20+ years of security experience",
+      qualification: "20+ years of security experience",
       achievements: [
         "Established AG MANPOWER Service in 2016",
         "Built a team of 100+ security professionals",
@@ -19,9 +19,9 @@ export default function TeamSection() {
       ]
     },
     {
-      name: "Aakash Gupta",
+      name: "Savita",
       position: "Managing Director",
-      photo: "/placeholder.svg",
+      photo: "/director.jpg",
       initials: "AG",
       phone: "9871489437",
       email: "info@agsecurityservice.com",
@@ -33,13 +33,13 @@ export default function TeamSection() {
       ]
     },
     {
-      name: "Rajiv Singh",
-      position: "Operations Director",
-      photo: "/placeholder.svg",
+      name: "Nandini",
+      position: "Customer Relationship Manager",
+      photo: "/crm.jpg",
       initials: "RS",
       phone: "9876543210",
       email: "operations@agsecurityservice.com",
-      qualification: "Former Military Officer",
+      qualification: "7+ years of Customer Relationship",
       achievements: [
         "Oversees security operations across all client locations",
         "Developed staff training and certification programs",
@@ -81,12 +81,12 @@ export default function TeamSection() {
                     <Award className="h-4 w-4 mr-2 text-primary dark:text-[#f7389a] " />
                     <span>{executive.qualification}</span>
                   </p>
-                  <p className="text-sm mb-2 flex items-center">
+                  {/* <p className="text-sm mb-2 flex items-center">
                     <Phone className="h-4 w-4 mr-2 text-primary dark:text-[#f7389a] " />
                     <a href={`tel:${executive.phone}`} className="hover:text-secondary transition-colors">
                       {executive.phone}
                     </a>
-                  </p>
+                  </p> */}
                   <p className="text-sm flex items-center">
                     <Mail className="h-4 w-4 mr-2 text-primary dark:text-[#f7389a]" />
                     <a href={`mailto:${executive.email}`} className="hover:text-secondary transition-colors truncate">
