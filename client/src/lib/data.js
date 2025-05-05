@@ -12,22 +12,23 @@ export const clientsServed = [
 ];
 
 export const registrationDetails = [
-  { title: "PAN NO.", number: "BOWPS4925M" },
-  { title: "GST NO.", number: "07BOWPS4925M2ZV" },
-  { title: "ESIC NO.", number: "11001262810001018" }
+  { title: "PAN NO.", number: "######925M" },
+  { title: "GST NO.", number: "#########5M2ZV" },
+  { title: "ESIC NO.", number: "#############01018" }
 ];
 
 export const manpowerList = [
-  { title: "Facility Manager", image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFuYWdlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60" },
+  { title: "Facility Manager", image: "/facility_manager.jpg" },
   { title: "Security Manager", image: "/sec_manager.jpg" },
   { title: "Security Team", image: "/team.jpg" },
   { title: "Security Supervisors", image: "/supervisor.png" },
   { title: "Trainer", image: "/officeBoy.png" },
-  { title: "Lady Housekeepers", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdXNla2VlcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60" },
+  { title: "All Work Manager", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdXNla2VlcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60" },
   { title: "Security Guards", image: "/guard.jpg" },
   { title: "Gunmen", image: "/gunman.jpg" },
   { title: "Receptionists", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60" }
 ];
+
 
 // Services Section Data
 export const servicesData = [

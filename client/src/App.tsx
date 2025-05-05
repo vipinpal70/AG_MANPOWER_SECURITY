@@ -27,7 +27,7 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="system" storageKey="ag-security-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="ag-security-theme">
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-1">

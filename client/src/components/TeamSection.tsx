@@ -35,7 +35,7 @@ export default function TeamSection() {
     {
       name: "Nandini",
       position: "Customer Relationship Manager",
-      photo: "/crm.jpg",
+      photo: "/crm_photo.jpg",
       initials: "RS",
       phone: "9876543210",
       email: "operations@agsecurityservice.com",

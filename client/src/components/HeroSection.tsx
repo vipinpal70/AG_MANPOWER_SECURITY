@@ -69,9 +69,7 @@ const HeroSection = () => {
             className="animate-element text-lg md:text-xl text-gray-800 dark:text-gray-200 mb-8 max-w-xl"
             style={{ textShadow: "0 1px 1px rgba(0,0,0,0.05)" }}
           >
-            AG MANPOWER SERVICE provides comprehensive security and facility
-            management services with a dedicated team of professionals since
-            2016.
+            AG MANPOWER SERVICE, formerly known as AG Security Service, has been providing comprehensive security and facility management services with a dedicated team of professionals since 2016. Our rebranding reflects our expanded service offerings while maintaining our commitment to excellence in the security sector.
           </p>
           <div className="animate-element flex flex-col sm:flex-row gap-4">
             <a
