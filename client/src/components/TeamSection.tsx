@@ -19,7 +19,7 @@ export default function TeamSection() {
       ]
     },
     {
-      name: "Savita",
+      name: "Savita Rajput",
       position: "Managing Director",
       photo: "/director.jpg",
       initials: "AG",
@@ -33,7 +33,7 @@ export default function TeamSection() {
       ]
     },
     {
-      name: "Nandini",
+      name: "Shalini",
       position: "Customer Relationship Manager",
       photo: "/crm_photo.jpg",
       initials: "RS",

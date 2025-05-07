@@ -26,7 +26,7 @@ export const manpowerList = [
   { title: "All Work Manager", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdXNla2VlcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=400&q=60" },
   { title: "Security Guards", image: "/guard.jpg" },
   { title: "Gunmen", image: "/gunman.jpg" },
-  { title: "Receptionists", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVjZXB0aW9uaXN0fGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60" }
+  { title: "Bouncers ", image: "/bouncers.jpg" }
 ];
 
 
