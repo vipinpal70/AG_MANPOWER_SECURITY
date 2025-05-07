@@ -21,7 +21,7 @@ export default function TeamSection() {
     {
       name: "Savita Rajput",
       position: "Managing Director",
-      photo: "/director.jpg",
+      photo: "/fac_man.jpg",
       initials: "AG",
       phone: "9871489437",
       email: "info@agsecurityservice.com",

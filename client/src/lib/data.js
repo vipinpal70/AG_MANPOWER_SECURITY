@@ -18,7 +18,7 @@ export const registrationDetails = [
 ];
 
 export const manpowerList = [
-  { title: "Facility Manager", image: "/fac_man.jpg" },
+  { title: "Facility Manager", image: "/facility_manager.jpg" },
   { title: "Security Manager", image: "/sec_manager.jpg" },
   { title: "Security Team", image: "/team.jpg" },
   { title: "Security Supervisors", image: "/supervisor.png" },
