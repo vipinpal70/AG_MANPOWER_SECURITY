@@ -33,7 +33,7 @@ export default function TeamSection() {
       ]
     },
     {
-      name: "Shalini",
+      name: "Shalini Singh",
       position: "Customer Relationship Manager",
       photo: "/crm_photo.jpg",
       initials: "RS",
